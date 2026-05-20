@@ -19,6 +19,8 @@ public class _01_LoginSteps {
        //pomSayfa.username.SendKeys("username");
        // pomSayfa.password.SendKeys("password");
        // pomSayfa.LoginButton.Click();
+        GWD.getDriver()
+
     }
 
     @Then("User should login successfully")

@@ -3,12 +3,22 @@ package Utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+import java.util.Locale;
+
 public class GWD {
     private static WebDriver driver;
 
     public static WebDriver getDriver(){
-        driver=new ChromeDriver();
+        Locale.setDefault(new Locale("EN"));
+        System.setProperty("user.language", "EN");
 
+        if (driver == null)//bir kere oluştursun
+        {
+            driver=new ChromeDriver();
+            driver.manage().window().maximize(); // Ekranı max yapıyor.
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        }
 
         return driver;
     }
@@ -22,7 +32,10 @@ public class GWD {
             throw new RuntimeException(e);
         }
 
-        driver.quit();
+        if (driver !=null) {
+            driver.quit();
+            driver=null;
+        }
     }
 
 

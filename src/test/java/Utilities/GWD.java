@@ -10,6 +10,7 @@ public class GWD {
     private static WebDriver driver;
 
     public static WebDriver getDriver(){
+        //system i tamamen ingilizceye çalıştır
         Locale.setDefault(new Locale("EN"));
         System.setProperty("user.language", "EN");
 

@@ -17,13 +17,13 @@ public class DialogPage {
         PageFactory.initElements(GWD.getDriver(),this);
     }
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//input[@id='input-email']")
     public WebElement username;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//input[@id='input-password']")
     public WebElement password;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//*[@value='Login']")
     public WebElement btnLogin;
 
     public void mySendKeys(WebElement e, String text)

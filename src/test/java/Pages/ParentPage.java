@@ -38,9 +38,6 @@ public class ParentPage {
         js.executeScript("arguments[0].scrollIntoView();", e);
     }
 
-    public void verifyTitleContainsText(String text){
-        wait.until(ExpectedConditions.titleContains(text));
-        Assert.assertTrue(GWD.getDriver().getTitle().toLowerCase().contains(text.toLowerCase()), "Login olunamadı");
-    }
+
 
 }

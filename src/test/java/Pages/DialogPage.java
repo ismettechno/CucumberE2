@@ -37,6 +37,9 @@ public class DialogPage extends ParentPage{
     @FindBy(css="[type='submit']")
     public WebElement submitBtn;
 
+    @FindBy(xpath="//input[@type='radio' and @value='0']")
+    public WebElement subNo;
+
 
     public void verifyTitleContainsText(String text){
         wait.until(ExpectedConditions.titleContains(text));

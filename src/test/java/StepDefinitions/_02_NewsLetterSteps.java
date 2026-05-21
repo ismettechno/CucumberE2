@@ -25,4 +25,19 @@ public class _02_NewsLetterSteps {
     public void successMessageShouldBeDisplayed() {
        dp.SuccessMessageValidation();
     }
+
+    @When("Click to No")
+    public void clickToNo() {
+        dp.myClick(dp.subNo);
+        dp.myClick(dp.cntBtn);
+    }
+
+    @When("checked to unchecked option")
+    public void checkedToUncheckedOption() {
+        if (dp.subYes.isSelected())
+            dp.myClick(dp.subYes);
+        else
+            dp.myClick(dp.subNo);
+        dp.myClick(dp.cntBtn);
+    }
 }

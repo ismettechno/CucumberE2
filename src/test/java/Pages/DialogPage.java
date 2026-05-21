@@ -11,12 +11,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class DialogPage {
-    public WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
-
-    public DialogPage() {
-        PageFactory.initElements(GWD.getDriver(),this);
-    }
+public class DialogPage extends ParentPage{
 
     @FindBy(xpath = "//input[@id='input-email']")
     public WebElement username;
@@ -27,30 +22,7 @@ public class DialogPage {
     @FindBy(xpath = "//*[@value='Login']")
     public WebElement btnLogin;
 
-    public void mySendKeys(WebElement e, String text)
-    {
-        wait.until(ExpectedConditions.visibilityOf(e));
-        scrollToElement(e);
-        e.clear();
-        e.sendKeys(text);
-    }
 
-    public void myClick(WebElement e)
-    {
-        wait.until(ExpectedConditions.elementToBeClickable(e));
-        scrollToElement(e);
-        e.click();
-    }
-
-    public void scrollToElement(WebElement e){
-        JavascriptExecutor js=(JavascriptExecutor) GWD.getDriver();
-        js.executeScript("arguments[0].scrollIntoView();", e);
-    }
-
-    public void verifyTitleContainsText(String text){
-        wait.until(ExpectedConditions.titleContains(text));
-        Assert.assertTrue(GWD.getDriver().getTitle().toLowerCase().contains(text.toLowerCase()), "Login olunamadı");
-    }
 
 
 

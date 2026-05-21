@@ -5,6 +5,8 @@ import Utilities.GWD;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 public class _01_LoginSteps {
     DialogPage dp=new DialogPage();
@@ -24,7 +26,7 @@ public class _01_LoginSteps {
 
     @Then("User should login successfully")
     public void userShouldLoginSuccessfully() {
-        //girildiğini validate et
+       dp.verifyTitleContainsText("My Account");
     }
 
 }

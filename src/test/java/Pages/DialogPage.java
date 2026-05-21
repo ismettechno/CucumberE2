@@ -7,11 +7,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
 public class DialogPage {
-    WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
+    public WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
 
     public DialogPage() {
         PageFactory.initElements(GWD.getDriver(),this);
@@ -45,6 +46,12 @@ public class DialogPage {
         JavascriptExecutor js=(JavascriptExecutor) GWD.getDriver();
         js.executeScript("arguments[0].scrollIntoView();", e);
     }
+
+    public void verifyTitleContainsText(String text){
+        wait.until(ExpectedConditions.titleContains(text));
+        Assert.assertTrue(GWD.getDriver().getTitle().toLowerCase().contains(text.toLowerCase()), "Login olunamadı");
+    }
+
 
 
 }

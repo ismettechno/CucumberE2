@@ -31,6 +31,13 @@ public class DialogPage extends ParentPage{
     @FindBy(css="[class='alert alert-success alert-dismissible']")
     public WebElement msgLabel;
 
+    @FindBy(id="input-enquiry")
+    public WebElement enquiryArea;
+
+    @FindBy(css="[type='submit']")
+    public WebElement submitBtn;
+
+
     public void verifyTitleContainsText(String text){
         wait.until(ExpectedConditions.titleContains(text));
         Assert.assertTrue(GWD.getDriver().getTitle().toLowerCase().contains(text.toLowerCase()), "Login olunamadı");
@@ -40,6 +47,11 @@ public class DialogPage extends ParentPage{
     {
         wait.until(ExpectedConditions.visibilityOf(msgLabel));
         Assert.assertTrue(msgLabel.getText().toLowerCase().contains("success"));
+    }
+
+    public void verifyURLContainsText(String text){
+        wait.until(ExpectedConditions.urlContains(text));
+        Assert.assertTrue(GWD.getDriver().getCurrentUrl().toLowerCase().contains(text.toLowerCase()), "Hata oluştu");
     }
 
 }

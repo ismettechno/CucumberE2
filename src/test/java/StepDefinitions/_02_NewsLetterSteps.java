@@ -35,9 +35,9 @@ public class _02_NewsLetterSteps {
     @When("checked to unchecked option")
     public void checkedToUncheckedOption() {
         if (dp.subYes.isSelected())
-            dp.myClick(dp.subYes);
-        else
             dp.myClick(dp.subNo);
+        else
+            dp.myClick(dp.subYes);
         dp.myClick(dp.cntBtn);
     }
 }

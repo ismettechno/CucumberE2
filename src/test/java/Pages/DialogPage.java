@@ -40,6 +40,12 @@ public class DialogPage extends ParentPage{
     @FindBy(xpath="//input[@type='radio' and @value='0']")
     public WebElement subNo;
 
+    @FindBy(id="input-firstname")
+    public WebElement inputFirstname;
+
+    @FindBy(id="input-lastname")
+    public WebElement inputLastname;
+
 
     public void verifyTitleContainsText(String text){
         wait.until(ExpectedConditions.titleContains(text));

@@ -46,6 +46,19 @@ public class DialogPage extends ParentPage{
     @FindBy(id="input-lastname")
     public WebElement inputLastname;
 
+    public WebElement getWebElement(String strElement)
+    {
+        switch (strElement)
+        {
+            case "inputFirstname" : return this.inputFirstname;
+            case "inputLastname" : return this.inputLastname;
+            case "cntBtn" : return this.cntBtn;
+            case "enquiryArea" : return this.enquiryArea;
+            case "submitBtn" : return this.submitBtn;
+            default: return null;
+        }
+    }
+
 
     public void verifyTitleContainsText(String text){
         wait.until(ExpectedConditions.titleContains(text));

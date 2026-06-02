@@ -17,7 +17,7 @@ public class _06_DataTable {
         List<String> listLinkler=linkler.asList();
 
         for (int i = 0; i < listLinkler.size(); i++) {
-           np.myClick( np.getWebElement(listLinkler.get(0)));
+           np.myClick( np.getWebElement(listLinkler.get(i)));
         }
 
     }
@@ -40,7 +40,7 @@ public class _06_DataTable {
         List<String> listbutonlar=butonlar.asList();
 
         for (int i = 0; i < listbutonlar.size(); i++) {
-            dp.myClick( dp.getWebElement(listbutonlar.get(0)));
+            dp.myClick( dp.getWebElement(listbutonlar.get(i)));
         }
     }
 }

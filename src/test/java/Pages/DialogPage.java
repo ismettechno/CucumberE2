@@ -55,6 +55,8 @@ public class DialogPage extends ParentPage{
             case "cntBtn" : return this.cntBtn;
             case "enquiryArea" : return this.enquiryArea;
             case "submitBtn" : return this.submitBtn;
+            case "subYes" : return this.subYes;
+            case "subNo" : return this.subNo;
             default: return null;
         }
     }

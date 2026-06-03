@@ -1,5 +1,6 @@
 Feature: NewsLetter Functionality
 
+  @Regression
   Scenario: Subcribe to NewsLetter
 
     Given Navigate to WebSite

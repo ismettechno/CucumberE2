@@ -22,3 +22,13 @@ Thread.Sleep(5000) -> bu hattı 5 sn beklet
 
 cucumber da driver STATİC olmak zorunda
 Her bir Thread e özel static tanımlayabilecek bir yöntem bulalım
+
+private static ThreadLocal<WebDriver> listDriver;
+
+getDriver()
+{
+  listDriver.set(driver);
+
+  return listDriver.get();
+}
+

@@ -7,21 +7,21 @@ import java.time.Duration;
 import java.util.Locale;
 
 public class GWD {
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> threadDriver;
 
     public static WebDriver getDriver(){
         //system i tamamen ingilizceye çalıştır
         Locale.setDefault(new Locale("EN"));
         System.setProperty("user.language", "EN");
 
-        if (driver == null)//bir kere oluştursun
+        if (threadDriver.get() == null)//bu hatta driver yok ise
         {
-            driver=new ChromeDriver();
-            driver.manage().window().maximize(); // Ekranı max yapıyor.
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+            threadDriver.set(new ChromeDriver());  // bu hatta bir driver set et
+            threadDriver.get().manage().window().maximize(); // Ekranı max yapıyor.
+            threadDriver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         }
 
-        return driver;
+        return threadDriver.get();
     }
 
     public static void quitDriver()
@@ -33,9 +33,12 @@ public class GWD {
             throw new RuntimeException(e);
         }
 
-        if (driver !=null) {
-            driver.quit();
-            driver=null;
+        if (threadDriver.get() !=null) {
+            threadDriver.get().quit();
+
+            WebDriver driver=threadDriver.get(); // hattaki driver ı ver
+            driver=null;  // içini boşalt
+            threadDriver.set(driver);  // tekrar ilgili iş hattına ver
         }
     }
 

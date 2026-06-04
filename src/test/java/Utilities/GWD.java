@@ -7,7 +7,7 @@ import java.time.Duration;
 import java.util.Locale;
 
 public class GWD {
-    private static ThreadLocal<WebDriver> threadDriver;
+    private static ThreadLocal<WebDriver> threadDriver=new ThreadLocal<>();
 
     public static WebDriver getDriver(){
         //system i tamamen ingilizceye çalıştır

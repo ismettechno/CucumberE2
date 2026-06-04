@@ -9,7 +9,7 @@
 
     <test name="test2">
         <classes>
-            <class name="Runners._01_TestRunner"></class>
+            <class name="Runners._02_TestRunnerBelirliFeaturelar"></class>
         </classes>
     </test>
 

@@ -2,21 +2,34 @@ package Utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 import java.util.Locale;
 
 public class GWD {
     private static ThreadLocal<WebDriver> threadDriver=new ThreadLocal<>();
+    private static ThreadLocal<String> threadBrowserName=new ThreadLocal<>();
 
     public static WebDriver getDriver(){
-        //system i tamamen ingilizceye çalıştır
+        //system i tamamen ingilizceye göre çalıştır
         Locale.setDefault(new Locale("EN"));
         System.setProperty("user.language", "EN");
 
+        if (threadBrowserName.get() == null) // XML den çalışmayacak diğer testlerde tarayıcı boş geldiğinde
+            threadBrowserName.set("chrome"); // tarayıcı adı CHROME olarak default olsun
+
+
         if (threadDriver.get() == null)//bu hatta driver yok ise
         {
-            threadDriver.set(new ChromeDriver());  // bu hatta bir driver set et
+            switch (threadBrowserName.get()) {
+                case "edge" :  threadDriver.set(new EdgeDriver()); break;
+                case "firefox" :  threadDriver.set(new FirefoxDriver()); break;
+                default:
+                      threadDriver.set(new ChromeDriver());  // bu hatta bir driver set et
+            }
+
             threadDriver.get().manage().window().maximize(); // Ekranı max yapıyor.
             threadDriver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         }
@@ -42,6 +55,7 @@ public class GWD {
         }
     }
 
-
-
+    public static void setThreadBrowserName(String browserName) {
+         threadBrowserName.set(browserName);
+    }
 }

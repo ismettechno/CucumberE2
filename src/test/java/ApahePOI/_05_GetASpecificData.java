@@ -30,3 +30,5 @@ public class _05_GetASpecificData {
       //sout  Reading
     }
 }
+// TODO: Aynı soruyu main de aranan kelimenin gönderildiği ve metodda bulunan
+//  sonucun yine main de yazdırılgığı  şekliyle çözünüz

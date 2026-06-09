@@ -14,12 +14,10 @@ import org.testng.annotations.Parameters;
 
 public class _08_ParellelCrosBrowser extends AbstractTestNGCucumberTests {
 
-     @BeforeClass
-     @Parameters("BrowserTipi")
-     public void beforeClass(String BrowserName)
-     {
-         GWD.setThreadBrowserName(BrowserName);
-     }
+    @BeforeClass
+    @Parameters("BrowserTipi")
+    public void beforeClass(String BrowserName) {
+        GWD.setThreadBrowserName(BrowserName);
+    }
 
 }
-

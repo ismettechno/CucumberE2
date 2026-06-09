@@ -37,6 +37,10 @@ public class GWD {
         return threadDriver.get();
     }
 
+    public static void setThreadBrowserName(String browserName) {
+        threadBrowserName.set(browserName);
+    }
+
     public static void quitDriver()
     {
         //test sonucu ekranı bir miktar beklesin diye
@@ -55,7 +59,5 @@ public class GWD {
         }
     }
 
-    public static void setThreadBrowserName(String browserName) {
-         threadBrowserName.set(browserName);
-    }
+
 }

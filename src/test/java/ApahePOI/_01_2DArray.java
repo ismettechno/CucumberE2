@@ -14,9 +14,9 @@ public class _01_2DArray {
         System.out.println("2 rakamı = " + zoo[1][1]); // 1.satırın , 1.elemanı
         System.out.println("--------------------");
 
-        for (int i = 0; i < zoo.length; i++) {  // satır uzunluğu
+        for (int i = 0; i < zoo.length; i++) {  // satır miktarı
 
-            for (int j = 0; j < zoo[i].length ; j++)   // i.satırın uzunluğu
+            for (int j = 0; j < zoo[i].length ; j++)   // i.satırın uzunluğu(hücre sayısı)
                 System.out.print(zoo[i][j]+"\t");
 
             System.out.println();

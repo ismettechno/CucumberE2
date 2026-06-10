@@ -36,7 +36,7 @@ public class _10_Soru {
             // hafızada idi, değişiklikleri mi yaptım
             int varOlanSatirSayisi=sheet.getPhysicalNumberOfRows(); // var olan satır sayısı
             Row yeniSatir=sheet.createRow(varOlanSatirSayisi);  // yeni satırı en son yerde açıyorum
-            Cell yeniHucre=yeniSatir.createCell(0);
+            Cell yeniHucre=yeniSatir.createCell(0); // yeni tırın ilk hucresi
             yeniHucre.setCellValue("Merhaba Dünya "+ varOlanSatirSayisi);
 
             inputStream.close(); // okuma modunu kapat
@@ -54,7 +54,7 @@ public class _10_Soru {
             XSSFWorkbook workbook=new XSSFWorkbook();
             XSSFSheet sheet=workbook.createSheet("Sayfa1");
 
-            Row yeniSatir=sheet.createRow(0);
+            Row yeniSatir=sheet.createRow(0);// ilk satır
             Cell yeniHucre=yeniSatir.createCell(0);
             yeniHucre.setCellValue("Merhaba Dünya 0");
 

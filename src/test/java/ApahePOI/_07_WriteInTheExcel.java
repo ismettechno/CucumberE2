@@ -18,7 +18,7 @@ public class _07_WriteInTheExcel {
         int varOlanSatirSayisi=sheet.getPhysicalNumberOfRows(); // var olan satır sayısı
         Row yeniSatir=sheet.createRow(varOlanSatirSayisi);  // yeni satırı en son yerde açıyorum
         Cell yeniHucre=yeniSatir.createCell(0);
-        yeniHucre.setCellValue("Merhaba Dünya");
+        yeniHucre.setCellValue("Merhaba Dünya "+ varOlanSatirSayisi);
 
         inputStream.close(); // okuma modunu kapat
 

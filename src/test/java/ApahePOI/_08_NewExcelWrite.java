@@ -27,7 +27,7 @@ public class _08_NewExcelWrite {
         String path = "src/test/java/ApahePOI/Resource/YeniExcel.xlsx";
         FileOutputStream outputStream=new FileOutputStream(path);
         workbook.write(outputStream);
-        workbook.close();
+        workbook.close(); // hafızadaki workbook bölgesini boşaltıyor.
         outputStream.close();
 
         System.out.println("Yeni Excel oluşturuldu ve kaydedildi.");

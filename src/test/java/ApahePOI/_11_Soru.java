@@ -63,3 +63,8 @@ public class _11_Soru {
     }
 
 }
+
+//int fizikselHucreSayisi=sheet.getRow(i).getPhysicalNumberOfCells();
+//int hucreMiktari= fizikselHucreSayisi < istenenSutunSayisi ? fizikselHucreSayisi : istenenSutunSayisi;
+//
+//            for (int j = 0; j <  hucreMiktari ; j++)

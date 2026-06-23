@@ -5,3 +5,5 @@ karşılaştırıyorum.
 
 JDBC yi nasıl kullanırsın ?
 URL, port, username, password vererek bir Connection oluştururum.
+Bu connection üzerinden sorgularımı çalıştıracağım "statement"
+oluştururum. Sorgularımı çalıştırıp, sonuçları yani ResulSet i alırım

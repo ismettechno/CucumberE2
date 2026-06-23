@@ -9,7 +9,7 @@ public class JDBCParent {
     public static Connection connection;
     public static Statement sorguEkrani;
 
-    public void DBConnectionOpen(){
+    public static void DBConnectionOpen(){
         String serverDBURL="jdbc:mysql://acela.proxy.rlwy.net:15150/sakila";
         String username="sdet";
         String password="SDET123!";
@@ -24,7 +24,7 @@ public class JDBCParent {
         }
     }
 
-    public void DBConnectionClose(){
+    public static void DBConnectionClose(){
         try {
             connection.close();
         }

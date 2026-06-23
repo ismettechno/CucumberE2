@@ -38,6 +38,15 @@ public class _03_NextPrevAbsRel extends JDBCParent{
         DBConnectionClose();
     }
 
-
+// rs.next() : sonraki satır
+// rs.previous : önceki satır
+// rs.absolute(10) : baştan itibaren 10.satıra ileri gider.
+// rs.relative(10) : bulunduğu yerden 10.satıra ileri gider.
+// rs.absolute(-10) : - (eksi) sondan demektir, sondan 10.satır
+// rs.relative(-5) :  - (eksi) bulunduğu yerden 5 satır geri
+// ilk satırdan relative ile 5 geri gitmek istersek sınırı taştığı için hata verecektir
+// rs.first() :  ilk satıra git
+// rs.last() :  Son satıra git
+// rs.getRow(); bulunduğu satırın kaçıncı satır bilgisini veririr
 
 }

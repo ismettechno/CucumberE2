@@ -1,10 +1,13 @@
 package _JDBC;
 
+import org.testng.annotations.Test;
+
 import java.sql.*;
 
 public class _02_Soru {
     // city tablosundaki tüm satırlardaki şehir isimlerini next ile yazdırınız
-    public static void main(String[] args) throws SQLException {
+    @Test
+    public void Test1() throws SQLException {
         String serverDBURL="jdbc:mysql://acela.proxy.rlwy.net:15150/sakila";
         String username="sdet";
         String password="SDET123!";

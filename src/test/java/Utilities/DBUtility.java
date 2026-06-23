@@ -1,8 +1,7 @@
 package Utilities;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class DBUtility {
 
@@ -10,7 +9,31 @@ public class DBUtility {
     // 2 boyutlu bir list olarak bana ver
     // getDataFromDB metodu oluşturmak üzere
 
+    public static ArrayList<ArrayList<String>> getListData(String sorgu){
+        ArrayList<ArrayList<String>> tablo=new ArrayList<>();
+        DBConnectionOpen();
 
+        try {
+            ResultSet rs = sorguEkrani.executeQuery(sorgu);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int kolonSayisi = rsmd.getColumnCount();
+
+            while (rs.next()) {
+                ArrayList<String> satir=new ArrayList<>();
+                for (int i = 1; i <= kolonSayisi; i++)
+                    satir.add(rs.getString(i));
+
+                tablo.add(satir);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+
+        DBConnectionClose();
+        return tablo;
+    }
 
 
     public static Connection connection;

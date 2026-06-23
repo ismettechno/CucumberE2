@@ -1,8 +1,10 @@
 package _JDBC;
 
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 
-public class _05_DBUtilitySoru {
+public class _05_DBUtilitySoru extends JDBCParent{
 
     // Gönderilen sorgu sonucundaki tüm datayı bir List olarak döndüren metodu yazınız.
     public static void main(String[] args) {
@@ -13,7 +15,31 @@ public class _05_DBUtilitySoru {
         System.out.println("donenData = " + donenData);
     }
 
-    // getListData
+    public static ArrayList<ArrayList<String>> getListData(String sorgu){
+        ArrayList<ArrayList<String>> tablo=new ArrayList<>();
+        DBConnectionOpen();
+
+        try {
+            ResultSet rs = sorguEkrani.executeQuery(sorgu);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int kolonSayisi = rsmd.getColumnCount();
+
+            while (rs.next()) {
+                ArrayList<String> satir=new ArrayList<>();
+                for (int i = 1; i <= kolonSayisi; i++)
+                    satir.add(rs.getString(i));
+
+               tablo.add(satir);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+
+        DBConnectionClose();
+        return tablo;
+    }
 
 
 

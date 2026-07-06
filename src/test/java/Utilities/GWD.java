@@ -2,6 +2,7 @@ package Utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -27,7 +28,16 @@ public class GWD {
                 case "edge" :  threadDriver.set(new EdgeDriver()); break;
                 case "firefox" :  threadDriver.set(new FirefoxDriver()); break;
                 default:
-                      threadDriver.set(new ChromeDriver());  // bu hatta bir driver set et
+                      if (isRunningOnJenkins())
+                      {
+                          //aşağıdaki 2 satır jenkins
+                          ChromeOptions ChromeOptions = new ChromeOptions();
+                          ChromeOptions.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
+
+                          threadDriver.set(new ChromeDriver(ChromeOptions));
+                      }
+                      else
+                        threadDriver.set(new ChromeDriver());  // bu hatta bir driver set et
             }
 
             threadDriver.get().manage().window().maximize(); // Ekranı max yapıyor.
@@ -35,6 +45,11 @@ public class GWD {
         }
 
         return threadDriver.get();
+    }
+
+    public static boolean isRunningOnJenkins() {
+        String jenkinsHome = System.getenv("JENKINS_HOME");
+        return jenkinsHome != null && !jenkinsHome.isEmpty();
     }
 
     public static void setThreadBrowserName(String browserName) {
